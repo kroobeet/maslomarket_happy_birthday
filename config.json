@@ -5,7 +5,9 @@
     "api_owner": "",
     "folder_id": "",
     "bot_id": "",
-    "image_index_filename": ""
+    "image_index_filename": "image_index.txt",
+    "templates_folder": "templates",
+    "template_filename": "default.txt"
   },
   "production": {
     "domain": "",
@@ -13,6 +15,8 @@
     "api_owner": "",
     "folder_id": "",
     "bot_id": "",
-    "image_index_filename": ""
+    "image_index_filename": "image_index.txt",
+    "templates_folder": "templates",
+    "template_filename": "default.txt"
   }
 }
