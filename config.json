@@ -1,0 +1,18 @@
+{
+  "dev": {
+    "domain": "",
+    "token": "",
+    "api_owner": "",
+    "folder_id": "",
+    "bot_id": "",
+    "image_index_filename": ""
+  },
+  "production": {
+    "domain": "",
+    "token": "",
+    "api_owner": "",
+    "folder_id": "",
+    "bot_id": "",
+    "image_index_filename": ""
+  }
+}
