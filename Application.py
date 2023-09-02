@@ -118,8 +118,8 @@ class BirthdayService:
 
 async def main():
     config = Config("config.json")
-    config_type = "dev"
     config_data = config.read_config()
+    config_type = config_data["config_type"]
     birthday_template_filename = config_data[config_type]["template_filename"]
     birthday_template = config.read_template(birthday_template_filename, config_type)
 
