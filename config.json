@@ -18,5 +18,6 @@
     "image_index_filename": "image_index.txt",
     "templates_folder": "templates",
     "template_filename": "default.txt"
-  }
+  },
+  "config_type": "dev"
 }
