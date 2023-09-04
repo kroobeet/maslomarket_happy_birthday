@@ -29,25 +29,33 @@
 4. Настройке конфигурационный файл:
    ```json
    {
-    "dev": {
-      "domain": "example-dev.bitrix24.ru",
-      "token": "bbbb444455556666",
-      "api_owner": "1",
-      "folder_id": "2",
-      "bot_id": "3",
-      "image_index_filename": "image_index.txt"
-    },
-    "production": {
-      "domain": "example-production.bitrix24.ru",
-      "token": "aaaa111122223333",
-      "api_owner": "1",
-      "folder_id": "2",
-      "bot_id": "3",
-      "image_index_filename": "image_index.txt"
-    }
+     "dev": {
+       "domain": "b24-3hmco1.bitrix24.ru",
+       "token": "rggttaxag0zysh7v",
+       "api_owner": "6",
+       "folder_id": "96",
+       "bot_id": "1",
+       "image_index_filename": "image_index.txt",
+       "templates_folder": "templates",
+       "template_filename": "default.txt"
+     },
+     "production": {
+       "domain": "maslomarket.bitrix24.ru",
+       "token": "qwvkhjry6syko2zq",
+       "api_owner": "1366",
+       "folder_id": "1393491",
+       "bot_id": "16773",
+       "image_index_filename": "image_index.txt",
+       "templates_folder": "templates",
+       "template_filename": "default.txt"
+     },
+     "config_type": "dev"
    }
    ```
    - `bot_id` может быть таким же, как и `api_owner`. В таком случае будет выполнена попытка отправки сообщения с поздравлением от имени пользователя, который настраивал API на портале
+   - `templates_folder` - папка с шаблонами текстов поздравлений
+   - `template_filename` - используемый шаблон текста поздравления
+   - `config_type` - используемая конфигурация приложения
    
 ## Запуск
 
