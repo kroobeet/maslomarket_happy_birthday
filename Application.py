@@ -89,7 +89,7 @@ class BirthdayService:
             logging.error(f"Couldn't get the public URL for image ID: {image_id}")
             return None
 
-    async def congratulate_employees_with_birthday(self, employees_with_birthdays, birthday_template):
+    async def congratulate_employees_with_birthday(self, employees_with_birthdays, birthday_template=""):
         # Обновите эту функцию, чтобы принимать результат вызова get_employee_birthdays
         employees = employees_with_birthdays
         logging.info(f"Checking employees with birthday of {self.get_today_date()}")
@@ -145,7 +145,7 @@ async def main():
     birthday_service = BirthdayService(bitrix_api, folder_id, bot_id, image_index_filename)
 
     employees_with_birthdays = await birthday_service.get_employee_birthdays()
-    await birthday_service.congratulate_employees_with_birthday(employees_with_birthdays, birthday_template)
+    await birthday_service.congratulate_employees_with_birthday(employees_with_birthdays, birthday_template if config_data["with_template"] == True else "")
 
 
 if __name__ == "__main__":
