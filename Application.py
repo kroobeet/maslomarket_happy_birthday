@@ -109,7 +109,7 @@ class BirthdayService:
             params = {
                 "USER_ID": self.bot_id,
                 "POST_TITLE": "Поздравляем с Днём Рождения!",
-                "POST_MESSAGE": f"{birthday_template} " + ", ".join(congratulations) + f"!\n\n[IMG]{next_image_url}[/IMG]",
+                "POST_MESSAGE": f"{birthday_template} " + ", ".join(congratulations) + f"!\n\n[IMG width=500 height=333]{next_image_url}[/IMG]",
                 "DEST": "UA",
             }
 
