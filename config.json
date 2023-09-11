@@ -19,5 +19,6 @@
     "templates_folder": "templates",
     "template_filename": "default.txt"
   },
-  "config_type": "dev"
+  "config_type": "dev",
+  "with_template": false
 }
