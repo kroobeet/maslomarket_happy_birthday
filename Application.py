@@ -89,7 +89,7 @@ class BirthdayService:
             logging.error(f"Couldn't get the public URL for image ID: {image_id}")
             return None
 
-    async def congratulate_employees_with_birthday(self, employees_with_birthdays):
+    async def congratulate_employees_with_birthday(self, employees_with_birthdays, birthday_template=""):
         # Обновите эту функцию, чтобы принимать результат вызова get_employee_birthdays
         employees = employees_with_birthdays
         logging.info(f"Checking employees with birthday of {self.get_today_date()}")
@@ -109,7 +109,7 @@ class BirthdayService:
             params = {
                 "USER_ID": self.bot_id,
                 "POST_TITLE": "Поздравляем с Днём Рождения!",
-                "POST_MESSAGE": f"С Днём Рождения, " + ", ".join(congratulations) + f"!\n\n[IMG]{next_image_url}[/IMG]",
+                "POST_MESSAGE": f"{birthday_template} " + ", ".join(congratulations) + f"!\n\n[IMG width=500 height=333]{next_image_url}[/IMG]",
                 "DEST": "UA",
             }
 
@@ -118,8 +118,14 @@ class BirthdayService:
 
 async def main():
     config = Config("config.json")
-    config_type = "dev"
     config_data = config.read_config()
+    config_type = config_data["config_type"]
+    birthday_template_filename = config_data[config_type]["template_filename"]
+    birthday_template = config.read_template(birthday_template_filename, config_type)
+
+    if birthday_template is None:
+        print(f"Error reading template '{birthday_template_filename}', exiting from function.")
+        birthday_template = "С Днём Рождения, "
 
     if config_data is None:
         print("Error reading config, exiting.")
@@ -138,7 +144,7 @@ async def main():
     birthday_service = BirthdayService(bitrix_api, folder_id, bot_id, image_index_filename)
 
     employees_with_birthdays = await birthday_service.get_employee_birthdays()
-    await birthday_service.congratulate_employees_with_birthday(employees_with_birthdays)
+    await birthday_service.congratulate_employees_with_birthday(employees_with_birthdays, birthday_template if config_data["with_template"] is True else "")
 
 
 if __name__ == "__main__":
