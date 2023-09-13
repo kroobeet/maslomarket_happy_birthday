@@ -126,7 +126,6 @@ async def main():
     if birthday_template is None:
         print(f"Error reading template '{birthday_template_filename}', exiting from function.")
         birthday_template = "С Днём Рождения, "
-        return birthday_template
 
     if config_data is None:
         print("Error reading config, exiting.")
@@ -145,7 +144,7 @@ async def main():
     birthday_service = BirthdayService(bitrix_api, folder_id, bot_id, image_index_filename)
 
     employees_with_birthdays = await birthday_service.get_employee_birthdays()
-    await birthday_service.congratulate_employees_with_birthday(employees_with_birthdays, birthday_template if config_data["with_template"] == True else "")
+    await birthday_service.congratulate_employees_with_birthday(employees_with_birthdays, birthday_template if config_data["with_template"] is True else "")
 
 
 if __name__ == "__main__":
