@@ -2,3 +2,4 @@
 /venv
 image_index.txt
 *.zip
+__pycache__/
