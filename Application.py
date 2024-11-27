@@ -105,15 +105,13 @@ class BirthdayService:
         if congratulations:
             next_image_id = await self.get_next_image()
             next_image_url = await self.get_image_public_url(next_image_id)
-
             params = {
-                "USER_ID": self.bot_id,
-                "POST_TITLE": "Поздравляем с Днём Рождения!",
-                "POST_MESSAGE": f"{birthday_template} " + ", ".join(congratulations) + f"!\n\n[IMG width=500 height=333]{next_image_url}[/IMG]",
-                "DEST": "UA",
+                "CHAT_ID": 304327,
+                "UPLOAD_ID": next_image_id,
+                "MESSAGE": f"{birthday_template} " + ", ".join(congratulations) + f"!",
             }
 
-            await self.bitrix_api.call("log.blogpost.add", params)
+            await self.bitrix_api.call("im.disk.file.commit", params)
 
 
 async def main():
